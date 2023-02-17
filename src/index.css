@@ -1,13 +1,77 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Sanchez:ital@0;1&display=swap');
+
+:root{
+  --YELLOW: #FFC75F;
+  --YELLOW_DARK: #E7B355;
+  --PURPLE: #845EC2;
+  --LIGHT_GREY: #EFEFEF;
+  --GREY: #969696;
+  --MARGINS: 10vw;
+  --GAP: 2vw;
+  --NAVHEIGHT:10vh;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+body {
+  margin: 0;
+  font-family: 'Sanchez', serif;
+  color: var(--GREY);
+}
+
+.heading {
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 2.2rem;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: var(--YELLOW);
+  border-bottom: 4px solid var(--YELLOW_DARK);
+  height: var(--NAVHEIGHT);
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  color: var(--LIGHT_GREY);
+
+}
+.navbar > * {
+
+  margin: 0 var(--MARGINS);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1 0 auto;
+  gap: var(--GAP);
+}
+
+
+.navbar img {
+  width: calc(var(--NAVHEIGHT)/1.6);
+}
+
+.username {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 auto;
+  gap: 5%;
+  /* position: relative; */
+}
+
+.username p {
+  padding: 2%;
+  /* background-color: var(--YELLOW_DARK); */
+}
+
+/* .username img {
+  position: absolute;
+  right: 0px;
 } */
+
+.link {
+  text-decoration: none;
+  color: white;
+}

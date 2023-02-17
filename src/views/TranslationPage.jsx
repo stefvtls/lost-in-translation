@@ -1,6 +1,8 @@
+import Navbar from "../components/Navbar/Navbar";
+
 const TranslationPage = () => {
     return (
-        <h1>TranslationPage</h1>
+        <Navbar page="TranslationPage"/>
     )
 }
 

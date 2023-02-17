@@ -1,8 +1,9 @@
-const LoginPage = () => {
+import Navbar from "../components/Navbar/Navbar";
 
+const LoginPage = () => {
     return (
         <>
-            <h1>LoginPage</h1>
+            <Navbar page="LoginPage"/>
         </> 
     )
 }
