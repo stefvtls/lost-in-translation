@@ -75,3 +75,9 @@ body {
   text-decoration: none;
   color: white;
 }
+
+.css-container {
+  padding-top: var(--NAVHEIGHT);
+  /* background-color: var(--PURPLE); */
+  border: 1px solid red;
+}

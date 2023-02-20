@@ -1,16 +1,17 @@
+import React from 'react';
 import Navbar from "../components/Navbar/Navbar";
-import { getUserOrCreateNewUser } from "../api/usersAPI";
+import { LoginContainer } from "../components/Login/LoginContainer";
 
 
-
-// console.log(getUserOrCreateNewUser("yo"))
 
 const LoginPage = () => {
     return (
-        <>
+        <div>
             <Navbar page="LoginPage"/>
-        </> 
+            <LoginContainer />
+        </div>
     )
 }
+
 
 export default LoginPage;
