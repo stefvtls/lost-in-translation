@@ -68,23 +68,25 @@ export const LoginForm = () => {
 
 
 
-    return (  
+    return (
+        <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset>
-                    <label htmlFor="name"> Log in with your username or create new free account </label>
-                    <input 
+                    <label htmlFor="name"> </label>
+                    <input
                     type="text" 
                     placeholder="What's your name?"
                     {...register("name", nameConstraints)} />
-                    { displayErrorsFromFormState() }
+
                 </fieldset>
 
                 <button type="submit" disabled={loading}> OK </button>
-
+            </form>
+            <div className="error">
+                { displayErrorsFromFormState() }
                 {loading && <p> Logging in... </p>}
                 {apiError && <p> { apiError }</p>}
-
-
-            </form>
+            </div>
+        </div>
     )
 }
