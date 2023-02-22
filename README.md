@@ -52,6 +52,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### Contributors
 Stefania van 't Laar-Sapór @stefvtls
+Sahil Mankani
 
 
 ### License
