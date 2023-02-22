@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import "./TranslateContainer.css"
+import "./TranslateContainer.css";
 
 const TranslateContainer = ({onTranslateRequest}) => {
 
@@ -23,4 +23,3 @@ const TranslateContainer = ({onTranslateRequest}) => {
 }
 
 export default TranslateContainer
-

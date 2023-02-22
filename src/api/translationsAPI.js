@@ -1,5 +1,4 @@
-import { createHeaders } from "./headers"
-
+import {createHeaders} from './headers';
 const apiUrl = process.env.REACT_APP_API_URL;
 
 export const updateTranslations = async(user, translation) => {
