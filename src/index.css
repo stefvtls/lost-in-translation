@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Sanchez:ital@0;1&display=swap');
 
 :root{
-  --YELLOW: #FFC75F;
+  /* --YELLOW: #FFC75F; */
+  --YELLOW: red;
   --YELLOW_DARK: #E7B355;
   --PURPLE: #845EC2;
   --LIGHT_GREY: #EFEFEF;
