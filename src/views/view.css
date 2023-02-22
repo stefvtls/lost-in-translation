@@ -1,0 +1,26 @@
+.container {
+    width: min(100% - 2rem, 600px);
+    margin-inline: auto;
+    margin-top: 3rem;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-row {
+    list-style: none;
+}
+
+.flex-row li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.flex-row-hands {
+    display: flex;
+    padding: 0;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}

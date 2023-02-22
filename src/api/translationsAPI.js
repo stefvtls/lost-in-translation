@@ -1,4 +1,4 @@
-import { createHeaders } from "."
+import { createHeaders } from "./headers"
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
