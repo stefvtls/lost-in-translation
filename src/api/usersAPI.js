@@ -56,6 +56,6 @@ export async function getUserOrCreateNewUser(usernameInput) {
     if (!cannotCheckForUser && existingUser.length === 0) {
         return await createUser(usernameInput);
     } else {
-        return [cannotCheckForUser, existingUser]
+        return [cannotCheckForUser, existingUser[0]]
     }
 }
