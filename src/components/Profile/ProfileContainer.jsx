@@ -1,13 +1,18 @@
 
 
-
 const ProfileContainer = (props) => {
-    const listOfTranslations = props.user.translations.map( (t,index)=> <li key={index + t}> {t} </li>)
+    const listOfTranslations = props.user.translations.map( (t,index)=>
+        <div className="alert alert-warning" role="alert" key={index}>
+            {t}
+        </div>
+    )
 
     return (
     <div className="css-container">
-        <h1>welcome, {props.user.username}</h1>
-        <ul> {listOfTranslations} </ul>
+        <div className={'container'}>
+            <h1>Welcome, {props.user.username}</h1>
+            <ul> {listOfTranslations} </ul>
+        </div>
     </div>
     )
 }

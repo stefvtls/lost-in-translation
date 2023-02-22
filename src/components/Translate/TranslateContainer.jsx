@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form"
-import "./TranslateContainer.css";
+// import "./TranslateContainer.css";
 
 const TranslateContainer = ({onTranslateRequest}) => {
 
@@ -11,11 +11,14 @@ const TranslateContainer = ({onTranslateRequest}) => {
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <fieldset>
-                    <label htmlFor="translation-request"> <img src="img/ui/keyboard.png" alt="" /></label>
-                    <input type="text" {... register("translationRequest")} placeholder="Enter your translation request." />
-                    <button className="button-style-arrow" type="submit"><img className="arrow " src="img/ui/right-arrow.png" alt="right arrow"/></button>
-                </fieldset>
+                <div className={'row'}>
+                    <div className={'col-md-10'}>
+                        <input type="text" className="form-control" id="exampleInputEmail1" {... register("translationRequest")} aria-describedby="emailHelp"/>
+                    </div>
+                    <div className={'col-md-2'}>
+                        <button className={'btn btn-primary'}> > </button>
+                    </div>
+                </div>
 
             </form>
         </div>
