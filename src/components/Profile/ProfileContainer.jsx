@@ -1,6 +1,8 @@
 
 
 const ProfileContainer = (props) => {
+
+    //this is a list with template for results
     const listOfTranslations = props.user.translations.map( (t,index)=>
         <div className="alert alert-warning" role="alert" key={index}>
             {t}

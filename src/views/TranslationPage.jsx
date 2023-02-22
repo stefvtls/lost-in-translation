@@ -12,6 +12,7 @@ const TranslationPage = () => {
 
     const [requestedTransltation, setrequestedTransltation] = useState([])
 
+    //this function will split the word into pieces and send it sends a http request
     const handleTranslateClicked =async({ translationRequest }) => {
         setrequestedTransltation(translationRequest.split(""))
 
@@ -21,6 +22,7 @@ const TranslationPage = () => {
         console.log('Result', result)
     }
 
+    //this method creates a list with a cord template
     let hands = requestedTransltation.map(letter =>
         <div className={'col-md-3'}>
             <div className="card">
