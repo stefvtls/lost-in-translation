@@ -9,17 +9,10 @@ const TranslateContainer = ({onTranslateRequest}) => {
 
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <div className={'row'}>
-                    <div className={'col-md-10'}>
-                        <input type="text" className="form-control" id="exampleInputEmail1" {... register("translationRequest")} aria-describedby="emailHelp"/>
-                    </div>
-                    <div className={'col-md-2'}>
-                        <button className={'btn btn-primary'}> </button>
-                    </div>
-                </div>
-
+        <div className="input-field">
+            <form onSubmit={handleSubmit(onSubmit)} className="input-form">
+                <input type="text" className="form-control" id="exampleInputEmail1" {... register("translationRequest")} aria-describedby="emailHelp"/>
+                <button className='btn btn-primary'> 🡲 </button>
             </form>
         </div>
     )

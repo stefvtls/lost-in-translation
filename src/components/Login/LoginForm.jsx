@@ -80,7 +80,7 @@ export const LoginForm = () => {
 
                 </fieldset>
 
-                <button type="submit" disabled={loading}> OK </button>
+                <button type="submit" disabled={loading}> 🡲 </button>
             </form>
             <div className="error">
                 { displayErrorsFromFormState() }
