@@ -1,28 +1,12 @@
-import TranslateContainer from "../components/Translate/TranslateContainer"
-import './TranslationPage.css'
+import Navbar from "../components/Navbar/Navbar";
+import allowOnlyAuthenticatedUsers from "../hoc/AuthenticationWrapper"
+import { useUserContext } from "../context/UserContext"; 
 
 const TranslationPage = () => {
-
-    const handleInput=(event)=>{
-        console.log(event.target.value)
-    }
-
+    const { currentUser } = useUserContext()   
     return (
-        <div className={'yellow-box'}>
-            <div className={'container'}>
-                <br/>
-                <div className={'row'}>
-                    <div className="col-md-9">
-                        <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="Hello" onChange={handleInput}/>
-                    </div>
-                    <div className="col-md-2">
-                        <button className={'btn btn-primary'}>Go</button>
-                    </div>
-                </div>
-            </div>
-            <TranslateContainer/>
-        </div>
+        <Navbar page="TranslationPage" user={currentUser}/>
     )
 }
 
-export default TranslationPage
+export default allowOnlyAuthenticatedUsers(TranslationPage)

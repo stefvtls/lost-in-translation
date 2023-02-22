@@ -1,13 +1,221 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&family=Sanchez:ital@0;1&display=swap');
+
+:root{
+  --YELLOW: #FFC75F;
+  --YELLOW_DARK: #E7B355;
+  --PURPLE: #845EC2;
+  --LIGHT_GREY: #EFEFEF;
+  --GREY: #969696;
+  --MARGINS: 10vw;
+  --GAP: 2vw;
+  --NAVHEIGHT:10vh;
+  --BUTTON-WIDTH: 40px;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+
+body {
+  margin: 0;
+  font-family: 'Sanchez', serif;
+  color: var(--GREY);
+}
+
+.heading {
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 2.2rem;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  background-color: var(--YELLOW);
+  border-bottom: 4px solid var(--YELLOW_DARK);
+  height: max(80px,var(--NAVHEIGHT));
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  color: var(--LIGHT_GREY);
+  z-index: 2;
+
+}
+.navbar > * {
+
+  margin: 0 var(--MARGINS);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1 0 auto;
+  gap: var(--GAP);
+}
+
+
+.navbar img {
+  width: max(calc(var(--NAVHEIGHT)/1.6), 40px);
+}
+
+.username {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 auto;
+  gap: 5%;
+  /* position: relative; */
+}
+
+.username p {
+  padding: 2%;
+}
+
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+.css-container {
+  padding-top: var(--NAVHEIGHT);
+  display: flex;
+  flex-direction: column;
+}
+
+.css-container > * {
+  width:100%;
+}
+
+.upper {
+  background-color: var(--YELLOW);
+  position: relative;
+  height: 50vh;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  gap: var(--GAP);
+  margin: 0 var(--MARGINS) 0;
+  width:auto;
+  height: 100%;
+  overflow: hidden;
+
+}
+
+.welcome-img img {
+  width: max(300px, 10vw);
+  Z-index: 1;
+}
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  Z-index: 2;
+}
+.welcome-text h1, h2 {
+  margin: 0;
+  color: white;
+  background-color: rgba(var(--YELLOW),0.7);
+  z-index: 2;
+}
+
+
+.form-field {
+  border-radius: 20px;
+
+  width: calc(100% - 2*var(--MARGINS) - 2*var(--GAP));
+  position: absolute;
+
+  left: var(--MARGINS);
+  right: var(--MARGINS);
+  bottom: -14vh;
+  Z-index: 3;
+  background-color: white;
+  padding: calc(1.1*var(--GAP));
+  border-bottom: 20px solid var(--PURPLE);
+  box-shadow: 5px 10px 18px #888888;
+}
+
+
+fieldset {
+  border: 0px;
+}
+
+form {
+  border-radius: 100px;
+  border: 3px solid var(--GREY);
+  width: 90%;
+  padding: 10px;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  background-color: var(--LIGHT_GREY);
+  color: var(--GREY)
+}
+form fieldset {
+  width: 100%;
+}
+form input {
+  border:0;
+  background-color: var(--LIGHT_GREY);
+  color: var(--GREY);
+  font-size: 1.6rem;
+  width: 100%;
+  border-radius: 100px;
+  border-style: none
+}
+input:focus{
+  outline: none;
+}
+
+form button {
+  height: var(--BUTTON-WIDTH);
+  width: var(--BUTTON-WIDTH);  
+  border-radius: 50%;
+  border: 0px;
+  background-color:var(--PURPLE);
+  color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.error {
+  color: var(--PURPLE);
+  font-size: 1rem;
+  margin: 2% 8% 0;
+}
+
+@media (max-width: 640px) {
+  .welcome-img img {
+    width: 80%;
+  }
+}
+
+
+@media (max-width: 470px) {
+  .welcome-img img {
+    display: none;
+  }
+}
+
+@media (min-width: 1000px) {
+  .welcome-text h1{
+    font-size: 3rem;
+  }
+  .welcome-text h2{
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .welcome-img img {
+    width: 100%;
+  }
+  .welcome-text h1{
+    font-size: 4rem;
+  }
+  .welcome-text h2{
+    font-size: 3rem;
+  }
+}
