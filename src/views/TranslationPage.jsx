@@ -8,20 +8,28 @@ import {updateTranslations} from "../api/translationsAPI"
 import "./view.css"
 
 const TranslationPage = () => {
-    const { currentUser } = useUserContext()   
+    const { currentUser, setCurrentUser } = useUserContext()   
 
-    const [requestedTransltation, setrequestedTransltation] = useState([])
+    const [requestedTranslation, setRequestedTranslation] = useState([])
 
     const handleTranslateClicked =async({ translationRequest }) => {
-        setrequestedTransltation(translationRequest.split(""))
 
-        const [error,result] = await updateTranslations(currentUser, translationRequest)
+        const newTranslation = translationRequest.split("")
+        // STEFVTLS: if no input do not bother for translations, just ignore it,
+        // we will not update the API and current state, so empty translation will not show up on the profile page
+        if (newTranslation.length !== 0 ) {
+            setRequestedTranslation(newTranslation)
+            const [error,result] = await updateTranslations(currentUser, translationRequest)
 
-        console.log('Error', error)
-        console.log('Result', result)
+            // STEFVTLS: you need to change the state of the user except of changing the API, otherwise API updates, but the components in the app does not know about it
+            setCurrentUser(result)
+
+            console.log('Error', error)
+            console.log('Result', result)
+        }
     }
 
-    let hands = requestedTransltation.map(letter =>
+    let hands = requestedTranslation.map(letter =>
         <div className={'col-md-3'}>
             <div className="card">
                 <img key={letter} src={process.env.PUBLIC_URL +`/resources/signs/${letter.toLowerCase()}.png`} className="card-img-top" alt="..."/>
