@@ -16,7 +16,7 @@ const TranslateContainer = ({onTranslateRequest}) => {
                         <input type="text" className="form-control" id="exampleInputEmail1" {... register("translationRequest")} aria-describedby="emailHelp"/>
                     </div>
                     <div className={'col-md-2'}>
-                        <button className={'btn btn-primary'}> > </button>
+                        <button className={'btn btn-primary'}> </button>
                     </div>
                 </div>
 
