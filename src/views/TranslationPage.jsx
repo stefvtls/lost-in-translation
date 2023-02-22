@@ -21,7 +21,15 @@ const TranslationPage = () => {
         console.log('Result', result)
     }
 
-    let hands = requestedTransltation.map(letter => <li key={letter}><img src={process.env.PUBLIC_URL +`/resources/signs/${letter.toLowerCase()}.png`}  alt={"sign"}/></li>)
+    let hands = requestedTransltation.map(letter =>
+        <div className={'col-md-3'}>
+            <div className="card">
+                <img key={letter} src={process.env.PUBLIC_URL +`/resources/signs/${letter.toLowerCase()}.png`} className="card-img-top" alt="..."/>
+            </div>
+        </div>
+    )
+
+
     return (
         <div>
             <Navbar page="TranslationPage" user={currentUser}/>
@@ -33,6 +41,7 @@ const TranslationPage = () => {
                         <TranslateContainer onTranslateRequest={handleTranslateClicked} />
                     </div>
                 </div>
+                    <br/>
                 <div className={'row'}>
                     {hands}
                 </div>
