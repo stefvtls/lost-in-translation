@@ -17,13 +17,12 @@ const ProfileContainer = (props) => {
     )
 
     const handleClickClearingAllTranslations = async () => {
-        const [error, result] = await clearTranslations(currentUser);
-        setCurrentUser(result)
-
-        console.log(error)
-        console.log(result)
-
-
+        if (window.confirm("Are you sure you want to clear history of all your translations?")) {
+            const [error, result] = await clearTranslations(currentUser);
+            setCurrentUser(result)
+            console.log(error)
+            console.log(result)
+        }
     }
 
     const handleClickNavigateToTranslations = () => {
@@ -33,15 +32,14 @@ const ProfileContainer = (props) => {
     return (
     <div className="css-container">
         <div className={'container'}>
+            <br></br>
+            <br></br>
             <h1>Welcome back, {props.user.username}</h1>
             <br></br>
             <br></br>
             <br></br>
             { listOfTranslations.length !== 0 && <h5> Here is the list of your 10 last translations in order from the most recent to the latest </h5>}
-            <br></br>
-            <br></br>
-            <br></br>
-            { listOfTranslations.length === 0 && <h5> nothing to show here, we will display history of your last 10 translations as soon as you will use our translations app </h5>}
+            { listOfTranslations.length === 0 && <h5> Nothing to show here, we will display history of your last 10 translations as soon as you will use our translations app </h5>}
             <br></br>
             <ul> {listOfTranslations} </ul>
             <br></br>
