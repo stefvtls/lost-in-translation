@@ -4,20 +4,18 @@ import { useNavigate } from "react-router-dom";
 
 const ProfileContainer = (props) => {
 
-
-
-
-
+    // Extracting the currentUser and setCurrentUser from UserContext
     const { currentUser, setCurrentUser } = useUserContext();
     const navigate = useNavigate();
 
-    //this is a list with template for results
+    // Creating a copy of the user's translation's list of last 10 translations with a template
     const listOfTranslations = props.user.translations.slice(0).reverse().slice(0,10).map( (t,index)=>
         <div className="alert alert-warning" role="alert" key={index}>
             {t}
         </div>
     )
 
+    // event handler to clear all the translations of the user
     const handleClickClearingAllTranslations = async () => {
         if (window.confirm("Are you sure you want to clear history of all your translations?")) {
             const [error, result] = await clearTranslations(currentUser);
@@ -27,6 +25,7 @@ const ProfileContainer = (props) => {
         }
     }
 
+    // event handler to navigate to the translations page
     const handleClickNavigateToTranslations = () => {
         navigate("/translations")
     }

@@ -1,13 +1,14 @@
 import UserContext from "./UserContext"
 
-const AppContext = (props) => {
 
+// wrapping component for our User Context
+const AppContext = (props) => {
     return (
         <UserContext>
             {props.children}
         </UserContext>
     )
-
- 
 }
+
+
 export default AppContext
