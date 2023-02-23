@@ -5,6 +5,7 @@ const TranslateContainer = ({onTranslateRequest}) => {
 
     const { register, handleSubmit} = useForm()
 
+    //this method will be executed when the form is submit
     const onSubmit = ( translationRequest ) => { onTranslateRequest(translationRequest) }
 
 

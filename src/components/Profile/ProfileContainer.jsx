@@ -3,13 +3,15 @@ import { clearTranslations } from "../../api/translationsAPI"
 import { useNavigate } from "react-router-dom";
 
 const ProfileContainer = (props) => {
+
+
+
+
+
     const { currentUser, setCurrentUser } = useUserContext();
     const navigate = useNavigate();
 
-    //STEFVTLS props.user.translations.slice(0).reverse()..
-    //... creating a copy of array from api and reversing it to have last items first, 
-    // we dont want to reverse the original array! 
-    // then .slice(0,10).map() to get only last 10 items and not all of them
+    //this is a list with template for results
     const listOfTranslations = props.user.translations.slice(0).reverse().slice(0,10).map( (t,index)=>
         <div className="alert alert-warning" role="alert" key={index}>
             {t}
