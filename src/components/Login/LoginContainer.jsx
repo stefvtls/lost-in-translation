@@ -1,9 +1,7 @@
 import { LoginForm } from "./LoginForm"
 
+// functional component to take care of displaying our landing page
 export const LoginContainer = () => {
-    // const myStyle={backgroundImage: `url('${process.env.PUBLIC_URL}/resources/Logo.png')`}
-    // const myStyle={backgroundImage: `url("${process.env.PUBLIC_URL}/resources/Logo.png"})`}
-
     return (
         <div className="css-container">
             <div className="upper">
@@ -19,7 +17,6 @@ export const LoginContainer = () => {
                 <div className="form-field">
                     <LoginForm />
                 </div>
-                
             </div>
             <div className="lower"></div>
         </div>

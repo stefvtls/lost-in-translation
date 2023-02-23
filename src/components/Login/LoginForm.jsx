@@ -8,30 +8,28 @@ import { useNavigate } from 'react-router-dom'
 
 
 
-// constraints set for validation of registered inputs
+// constraints for validation of registered inputs
 const nameConstraints = {
     required: true,
     minLength: 4,
 }
  
+
+// functional component for our Login form
 export const LoginForm = () => {
-
-
     // HOOKS
     const { register, handleSubmit, formState: {errors} } = useForm();      // hook from react-hook-form to manage state of our form
-    const { currentUser,  setCurrentUser} = useUserContext()                // equals: useContext(currentlySavedUser)
-    const navigate = useNavigate();
+    const { currentUser,  setCurrentUser} = useUserContext()                // our currentUserContext
+    const navigate = useNavigate();                                         // navigation from React router
     
      // LOCAL STATE
     const [ loading, setLoading ] = useState(false);                        // state hook to keep track of our async call to the api
     const [ apiError, setApiError ] =  useState(null);                      // state hook to keep track if no errors are back from api calls
 
-
     // SIDE EFFECTS
     useEffect(() => {
         if (currentUser) {
-            console.log("currentUser has changed", currentUser)
-            navigate("/translations")
+            navigate("/translations")                                       // if user is authenticated redirect him to translations
         }
     }, [currentUser, navigate])
 
@@ -45,7 +43,6 @@ export const LoginForm = () => {
             setApiError(errorFromAPI);                                                      
         } 
         if (userResponse) {
-            console.log(userResponse)
             localStorageSave(LOCAL_STORAGE_CURRENT_USER, userResponse)
             setCurrentUser(userResponse)
         }
@@ -53,7 +50,7 @@ export const LoginForm = () => {
     }
 
     // RENDER FUNCTIONS
-    // display errors if our field did not meet our constraints
+    // display errors if input from the input field did not meet our constraints
     const displayErrorsFromFormState = () => {
         if (errors.name) {
             if (errors.name.type === 'required' ) {
@@ -67,25 +64,19 @@ export const LoginForm = () => {
 
 
 
-
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset>
-                    <label htmlFor="name"> </label>
-                    <input
-                    type="text" 
-                    placeholder="What's your name?"
-                    {...register("name", nameConstraints)} />
-
+                    <label htmlFor="name"></label>
+                    <input type="text" placeholder="What's your name?" {...register("name", nameConstraints)} />
                 </fieldset>
-
                 <button type="submit" disabled={loading}> 🡲 </button>
             </form>
             <div className="error">
                 { displayErrorsFromFormState() }
                 {loading && <p> Logging in... </p>}
-                {apiError && <p> { apiError }</p>}
+                {apiError && <p> { apiError } </p>}
             </div>
         </div>
     )

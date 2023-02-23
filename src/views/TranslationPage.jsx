@@ -17,13 +17,9 @@ const TranslationPage = () => {
     const handleTranslateClicked =async({ translationRequest }) => {
         const newTranslation = translationRequest.split("")
         setRequestedTranslation(newTranslation)
-        // STEFVTLS: if no input do not bother for translations, just ignore it,
-        // we will not update the API and current state, so empty translation will not show up on the profile page
+
         if (newTranslation.length !== 0 ) {
-
             const [error,result] = await updateTranslations(currentUser, translationRequest)
-
-            // STEFVTLS: you need to change the state of the user except of changing the API, otherwise API updates, but the components in the app does not know about it
             setCurrentUser(result)
 
             console.log('Error', error)
