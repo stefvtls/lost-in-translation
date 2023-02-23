@@ -12,16 +12,22 @@ const TranslationPage = () => {
 
     const [requestedTranslation, setRequestedTranslation] = useState([])
 
+    const [lastTranslation,setlastTranslation] = useState([''])
+
 
     //this function will split the word into pieces and send it sends a http request
     const handleTranslateClicked =async({ translationRequest }) => {
-        const newTranslation = translationRequest.split("")
+        //this will remove white space in translation
+        let newTrans=translationRequest.replace( /\s/g, '')
+        //this will remove symbols in translation
+        let removeSymbol=newTrans.replace(/[^a-zA-Z ]/g, "")
+        let newTranslation = removeSymbol.split("")
         setRequestedTranslation(newTranslation)
 
-        if (newTranslation.length !== 0 ) {
+        if (newTranslation.length !== 0 && removeSymbol!==lastTranslation) {
             const [error,result] = await updateTranslations(currentUser, translationRequest)
             setCurrentUser(result)
-
+            setlastTranslation(removeSymbol)
             console.log('Error', error)
             console.log('Result', result)
         } 
