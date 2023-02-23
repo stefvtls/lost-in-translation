@@ -31,20 +31,19 @@ const ProfileContainer = (props) => {
 
     return (
     <div className="css-container">
-        <div className={'container'}>
-            <br></br>
-            <br></br>
+        <div className='container'>
             <h1>Welcome back, {props.user.username}</h1>
             <br></br>
-            <br></br>
-            <br></br>
             { listOfTranslations.length !== 0 && <h5> Here is the list of your 10 last translations in order from the most recent to the latest </h5>}
-            { listOfTranslations.length === 0 && <h5> Nothing to show here, we will display history of your last 10 translations as soon as you will use our translations app </h5>}
+            <br></br>
+            { listOfTranslations.length === 0 && <h5> Nothing to show here, we will display the history of your last 10 translations as soon as you will use our translations app </h5>}
             <br></br>
             <ul> {listOfTranslations} </ul>
             <br></br>
-            { listOfTranslations.length !== 0 && <button onClick={handleClickClearingAllTranslations}> Clear all translations </button>}
-            <button onClick={handleClickNavigateToTranslations}> Translate something new! </button>
+        </div>
+        <div className='container extra'>
+            { listOfTranslations.length !== 0 && <button onClick={handleClickClearingAllTranslations} className="btn-extra"> Clear all translations </button>}
+            <button onClick={handleClickNavigateToTranslations} className="btn-extra"> Translate something new ! </button>
         </div>
     </div>
     )
