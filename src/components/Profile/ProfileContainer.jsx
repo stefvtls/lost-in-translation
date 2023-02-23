@@ -17,13 +17,12 @@ const ProfileContainer = (props) => {
     )
 
     const handleClickClearingAllTranslations = async () => {
-        const [error, result] = await clearTranslations(currentUser);
-        setCurrentUser(result)
-
-        console.log(error)
-        console.log(result)
-
-
+        if (window.confirm("Are you sure you want to clear history of all your translations?")) {
+            const [error, result] = await clearTranslations(currentUser);
+            setCurrentUser(result)
+            console.log(error)
+            console.log(result)
+        }
     }
 
     const handleClickNavigateToTranslations = () => {
