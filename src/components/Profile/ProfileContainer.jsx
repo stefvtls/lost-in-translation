@@ -1,12 +1,19 @@
 import { useUserContext } from "../../context/UserContext"
 import { clearTranslations } from "../../api/translationsAPI"
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { LOCAL_STORAGE_CURRENT_USER } from "../../const/localStorageKeys"
+import { localStorageSave } from "../../utils/localStorageManager";
 
 const ProfileContainer = (props) => {
 
     // Extracting the currentUser and setCurrentUser from UserContext
     const { currentUser, setCurrentUser } = useUserContext();
     const navigate = useNavigate();
+
+    useEffect(() => {                                                       // update local storage whenever state of user change -> prevents wrong data on profile page to be displayed if user would refresh the page
+        localStorageSave(LOCAL_STORAGE_CURRENT_USER, currentUser)
+    }, [currentUser])
 
     // Creating a copy of the user's translation's list of last 10 translations with a template
     const listOfTranslations = props.user.translations.slice(0).reverse().slice(0,10).map( (t,index)=>
@@ -19,9 +26,11 @@ const ProfileContainer = (props) => {
     const handleClickClearingAllTranslations = async () => {
         if (window.confirm("Are you sure you want to clear history of all your translations?")) {
             const [error, result] = await clearTranslations(currentUser);
-            setCurrentUser(result)
-            console.log(error)
-            console.log(result)
+            setCurrentUser((prev) => ({...prev, translations: []})); 
+            if (error) {                // log errors only if they exist, do not log them as nulls
+                console.log(error)
+            }
+            // console.log(result)
         }
     }
 
@@ -45,6 +54,7 @@ const ProfileContainer = (props) => {
         <div className='container extra'>
             { listOfTranslations.length !== 0 && <button onClick={handleClickClearingAllTranslations} className="btn-extra"> Clear all translations </button>}
             <button onClick={handleClickNavigateToTranslations} className="btn-extra"> Translate something new ! </button>
+            <br></br>
         </div>
     </div>
     )
