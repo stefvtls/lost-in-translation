@@ -23,12 +23,9 @@ const TranslationPage = () => {
         let removeSymbol=newTrans.replace(/[^a-zA-Z ]/g, "")
         let newTranslation = removeSymbol.split("")
         setRequestedTranslation(newTranslation)
-        // STEFVTLS: if no input do not bother for translations, just ignore it,
-        // we will not update the API and current state, so empty translation will not show up on the profile page
+
         if (newTranslation.length !== 0 && removeSymbol!==lastTranslation) {
             const [error,result] = await updateTranslations(currentUser, translationRequest)
-
-            // STEFVTLS: you need to change the state of the user except of changing the API, otherwise API updates, but the components in the app does not know about it
             setCurrentUser(result)
             setlastTranslation(removeSymbol)
             console.log('Error', error)

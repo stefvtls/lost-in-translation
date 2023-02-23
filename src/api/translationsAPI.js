@@ -1,6 +1,8 @@
 import {createHeaders} from './headers';
+
 const apiUrl = process.env.REACT_APP_API_URL;
 
+// PATCH request to update translations with a new translation
 export const updateTranslations = async(user, translation) => {
     try {
         const response = await fetch(`${apiUrl}/${user.id}`, {
@@ -20,6 +22,7 @@ export const updateTranslations = async(user, translation) => {
     }
 }
 
+// PATCH request to clear translations for the user
 export const clearTranslations = async(user) => {
     try {
         const response = await fetch(`${apiUrl}/${user.id}`, {

@@ -4,7 +4,7 @@ import LoginPage from './views/LoginPage'
 import ProfilePage from './views/ProfilePage'
 import TranslationPage from './views/TranslationPage'
 
-
+// routing for endpoint of our app
 function App() {
   return (
     <BrowserRouter>
