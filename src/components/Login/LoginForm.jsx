@@ -38,9 +38,9 @@ export const LoginForm = () => {
 
     // EVENT HANDLERS
     // function defined to handle our custom event when submitting data
-    const onSubmit = async (inputtedName) => {        
+    const onSubmit = async (loginForm) => {        
         setLoading(true);                                    
-        const [errorFromAPI, userResponse] = await getUserOrCreateNewUser(inputtedName.name)        // async call to api to find or create user with the given string
+        const [errorFromAPI, userResponse] = await getUserOrCreateNewUser(loginForm.name)        // async call to api to find or create user with the given string
         if (errorFromAPI) {
             setApiError(errorFromAPI);                                                      
         } 
@@ -80,7 +80,7 @@ export const LoginForm = () => {
 
                 </fieldset>
 
-                <button type="submit" disabled={loading}> OK </button>
+                <button type="submit" disabled={loading}> 🡲 </button>
             </form>
             <div className="error">
                 { displayErrorsFromFormState() }

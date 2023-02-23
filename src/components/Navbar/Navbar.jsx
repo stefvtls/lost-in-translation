@@ -7,8 +7,10 @@ const Navbar = (props) => {
     const { currentUser, setCurrentUser } = useUserContext()   
 
     const logOut = () => {
-        localStorageDelete(LOCAL_STORAGE_CURRENT_USER)
-        setCurrentUser(null)
+        if (window.confirm("Are you sure you want to log out?")) {
+            localStorageDelete(LOCAL_STORAGE_CURRENT_USER)
+            setCurrentUser(null)
+        }
     }
 
     return (

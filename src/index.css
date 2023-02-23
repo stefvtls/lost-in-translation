@@ -34,7 +34,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-content: center;
-  color: var(--LIGHT_GREY);
+  color: white;
   z-index: 2;
 
 }
@@ -165,6 +165,7 @@ form input {
   border-radius: 100px;
   border-style: none
 }
+
 input:focus{
   outline: none;
 }
@@ -178,6 +179,10 @@ form button {
   color: white;
   text-align: center;
   cursor: pointer;
+}
+
+form button:hover {
+  background-color: var(--YELLOW);
 }
 
 .error {
@@ -196,6 +201,12 @@ form button {
 @media (max-width: 470px) {
   .welcome-img img {
     display: none;
+  }
+  .navbar .heading {
+    display: none;
+  }
+  form input {
+    font-size: 1rem;
   }
 }
 

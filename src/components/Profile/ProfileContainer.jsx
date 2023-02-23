@@ -1,19 +1,51 @@
-
+import { useUserContext } from "../../context/UserContext"
+import { clearTranslations } from "../../api/translationsAPI"
+import { useNavigate } from "react-router-dom";
 
 const ProfileContainer = (props) => {
 
+
+
+
+
+    const { currentUser, setCurrentUser } = useUserContext();
+    const navigate = useNavigate();
+
     //this is a list with template for results
-    const listOfTranslations = props.user.translations.map( (t,index)=>
+    const listOfTranslations = props.user.translations.slice(0).reverse().slice(0,10).map( (t,index)=>
         <div className="alert alert-warning" role="alert" key={index}>
             {t}
         </div>
     )
 
+    const handleClickClearingAllTranslations = async () => {
+        if (window.confirm("Are you sure you want to clear history of all your translations?")) {
+            const [error, result] = await clearTranslations(currentUser);
+            setCurrentUser(result)
+            console.log(error)
+            console.log(result)
+        }
+    }
+
+    const handleClickNavigateToTranslations = () => {
+        navigate("/translations")
+    }
+
     return (
     <div className="css-container">
-        <div className={'container'}>
-            <h1>Welcome, {props.user.username}</h1>
+        <div className='container'>
+            <h1>Welcome back, {props.user.username}</h1>
+            <br></br>
+            { listOfTranslations.length !== 0 && <h5> Here is the list of your 10 last translations in order from the most recent to the latest </h5>}
+            <br></br>
+            { listOfTranslations.length === 0 && <h5> Nothing to show here, we will display the history of your last 10 translations as soon as you will use our translations app </h5>}
+            <br></br>
             <ul> {listOfTranslations} </ul>
+            <br></br>
+        </div>
+        <div className='container extra'>
+            { listOfTranslations.length !== 0 && <button onClick={handleClickClearingAllTranslations} className="btn-extra"> Clear all translations </button>}
+            <button onClick={handleClickNavigateToTranslations} className="btn-extra"> Translate something new ! </button>
         </div>
     </div>
     )

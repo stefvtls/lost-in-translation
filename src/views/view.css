@@ -2,15 +2,14 @@
     width: min(100% - 2rem, 600px);
     margin-inline: auto;
     margin-top: 3rem;
+    color: var(--GREY);
 }
 
 .flex-row {
     display: flex;
     flex-direction: row;
-}
-
-.flex-row {
     list-style: none;
+
 }
 
 .flex-row li {
@@ -23,4 +22,62 @@
     padding: 0;
     margin-top: 3rem;
     flex-wrap: wrap;
+}
+
+
+
+.output-field {
+    border-radius: 20px;
+    background-color: white;
+    padding: calc(1.1*var(--GAP));
+    border-bottom: 40px solid var(--PURPLE);
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.input-form {
+    border-color: white;
+    width: 100%;
+    padding: 10px;
+}
+.form-control {
+    background-color: var(--LIGHT-GREY);
+    margin: 0 20px 0 10px;
+}
+.input-field button {
+    height: var(--BUTTON-WIDTH);
+    width: var(--BUTTON-WIDTH);  
+    border-radius: 50%;
+    border: 0px;
+    background-color:var(--PURPLE);
+    color: white;
+    text-align: center;
+    cursor: pointer;
+  }
+
+.input-field button:hover {
+    background-color:var(--YELLOW);
+  }
+
+.upper-yellow {
+    background-color: var(--YELLOW);
+    height: 40vh;
+}
+
+.btn-extra {
+    border-radius: 30px;
+    border: 0px;
+    background-color:var(--PURPLE);
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    padding: 20px;
+}
+.btn-extra:hover {
+    background-color: var(--YELLOW);
+}
+.extra {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: 100px;
 }
