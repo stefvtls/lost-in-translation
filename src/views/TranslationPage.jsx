@@ -15,7 +15,6 @@ const TranslationPage = () => {
 
     //this function will split the word into pieces and send it sends a http request
     const handleTranslateClicked =async({ translationRequest }) => {
-        setrequestedTransltation(translationRequest.split(""))
         const newTranslation = translationRequest.split("")
         setRequestedTranslation(newTranslation)
         // STEFVTLS: if no input do not bother for translations, just ignore it,
